@@ -16,12 +16,15 @@ const BookList = () => {
   return (
     <div className='book-list'>
       {books.map((book) => (
-        <div key={book.id}>
+        <div key={book.id} className='book'>
           <div>
             <h2>{book.title}</h2>
           </div>
           <div>
-            <img src={book.image_url} alt="" />
+            <img src={book.image_url} alt={book.title} />
+          </div>
+          <div>
+            <button>Add to Favorites</button>
           </div>
         </div>
       ))}
