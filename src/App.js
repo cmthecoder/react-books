@@ -9,13 +9,13 @@ import './App.css';
 function App() {
   return (
     <div className="">
-      {/* <NavBar /> */}
+      <NavBar />
       <Routes>
         <Route path='/' element={<BookList />} />
         <Route path='/book/:id' element={<BookDetails />} />
         <Route path='/favorites' element={<Favorites />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
