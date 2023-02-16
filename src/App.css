@@ -33,9 +33,9 @@
   justify-items: center;
 }
 
-.img {
-  width: 300px;
-  height: 300px;
+img {
+  width: 350px;
+  height: 470px;
   transition: all 0.3s ease;
 }
 
@@ -59,4 +59,19 @@ button {
   color: white;
   width: 100%;
   border-radius: 5px;
+  width: 350px;
+  font-size: 20px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.favorites {
+  min-height: 80vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
 }
