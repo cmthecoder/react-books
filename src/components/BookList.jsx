@@ -2,9 +2,19 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import '../App'
 import {API_URL} from '../API'
+import { useAppContext } from './context/appContext'
 
 const BookList = () => {
   const [books, setBooks] = useState([])
+
+  const {favorites, addToFavorites, removeFromFavorites} = useAppContext()
+
+  console.log('FAVORITES ARE FAVORITES', favorites)
+
+  const favoritesChecker = (id) => {
+    const boolean = favorites.some((book) => book.id === id)
+    return boolean
+  }
 
   useEffect(() => {
     axios.get(API_URL).then(res => {
@@ -24,7 +34,14 @@ const BookList = () => {
             <img src={book.image_url} alt={book.title} />
           </div>
           <div>
-            <button>Add to Favorites</button>
+            {
+              favoritesChecker(book.id) ?
+
+              <button onClick={() => removeFromFavorites(book.id)}>Remove From Favorites</button>
+              :
+
+              <button onClick={() => addToFavorites(book)}>Add to Favorites</button>
+            }
           </div>
         </div>
       ))}
